@@ -1,20 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Hello Vue3 TV"/>
-  <CardUi :cardData="{...cardData, type:1}" /> 
-  <CardUi :cardData="{...cardData, type:2}" /> 
-  <CardUi :cardData="{...cardData, type:3}" /> 
-  <CardUi :cardData="{...cardData, type:4}" /> 
+  <h1 class="title">과제 1</h1>
+  <section class="module-wrapper">
+    <article>
+      <CardUi :cardData="{...cardData, type:1}" /> 
+    </article>
+
+    <article>
+      <CardUi :cardData="{...cardData, type:2}" /> 
+    </article>
+    
+    <article>
+      <CardUi :cardData="{...cardData, type:3}" /> 
+    </article>
+
+    <article>
+      <CardUi :cardData="{...cardData, type:4}" /> 
+    </article>
+  </section>
+
 </template>
 
 <script>
 import CardUi from '@/components/CardUi.vue';
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
     CardUi,
   },
   data() {
@@ -23,7 +34,8 @@ export default {
         type: Number,
         label:'Card Label',
         title:'Card Title',
-        description: '미쳣다 컴포넌트',
+        highlightText: 'Highlight',
+        crossOut: 'Cross Out'
       }
     }
   },
@@ -35,6 +47,21 @@ export default {
   margin:0;
   padding:0;
   user-select: none;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.title {
+  margin: 30px 0;
+}
+.module-wrapper {
+  width: 89.33%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.module-wrapper article{
+  max-width: 420px;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
