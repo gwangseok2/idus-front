@@ -19,9 +19,10 @@ export default {
   },
   data() {
     return {
-      cardData :{
+      cardData : {
         type: Number,
-        title:'card',
+        label:'Card Label',
+        title:'Card Title',
         description: '미쳣다 컴포넌트',
       }
     }
