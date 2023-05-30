@@ -14,13 +14,9 @@
       </div>
       <template v-if="cardData.type !== 3">
         <ul class="card-ui-review"> 
-          <li class="active"></li>
-          <li class="active"></li>
-          <li class="active"></li>
-          <li></li>
-          <li></li>
+          <li v-for="index in 5" :key="index" :class="[ cardData.score >= index ? 'active' : '']"></li>
         </ul>
-        <div class="card-ui-review-text">Lorem ipsum dolor sit amet...</div>
+        <div v-if="cardData.type === 1" class="card-ui-review-text">Lorem ipsum dolor sit amet...</div>
       </template>
     </div>
   </div>
@@ -58,9 +54,9 @@
     display: block;
   }
   /** 
-    type1 : asdsad,
-    type2 : asdsad,
-    type3 : asdasd,
+    type1 : 세로형 카드 전체 출력,
+    type2 : 세로형 카드 맨 아래 text 미출력,
+    type3 : 세로형 카드 하단 정보부 미출력,
     type4 : 가로형 카드
   **/
   .card-ui.type4 {
@@ -77,6 +73,7 @@
     padding: 5px 0;
     background-color: #F8F9FB;
   }
+
   /* card-ui-textarea */
   .card-ui-textarea {
     width: 100%;
@@ -93,12 +90,11 @@
     font-size: min(2.2676056vw, 18px);
     color: #000;
   }
-
   /* //card-ui-textarea */
 
   /* card-ui-highlight */
   .card-ui-highlight {
-    margin-top: 30px;
+    margin: 30px 0 10px 0;
     font-size: min(2.06760vw, 14px);
   }
   .card-ui-highlight .card-ui-highlight-text {
@@ -124,14 +120,13 @@
     transform: translateY(-50%);
     background-color: #a9a9a9;
   }
-  
   /* //card-ui-highlight */
 
+  /* card-ui-review */
   .card-ui-review {
     border-top: 1px solid rgba(1,1,1,0.2);
     display: flex;
-    margin: 10px 0;
-    padding: 15px 0 0 10px;
+    padding: 15px 0 10px 10px;
     gap: 5px;
     list-style: none;
   }
@@ -151,6 +146,7 @@
     padding-left: 10px;
     font-size: min(2.26760vw, 16px);
   }
+  /* //card-ui-review */
 
   
 </style>
